@@ -1,0 +1,478 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*p ОБЩИЕ СТИЛИ */
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #1C1C1C;
+    color: #fff;
+    margin: 0;
+
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*g (У одного абзаца нету отступов поумолчанию) */
+p {
+    margin: 0;
+}
+
+/*g (Отступы для абзацев идущих подряд) */
+p + p {
+    margin-top: 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0; /*g (p0) */
+    margin: 0; /*g (m0) */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    margin: 0;
+}
+
+/*o ПОЛЕЗНО */
+/*g (Чтобы картинки не выпадали из контента) */ 
+img {
+    max-width: 100%;
+}
+
+/*p HEADER */
+.container {
+    /*o ПОЛЕЗНО */
+    cursor: default; /*g (Курсор остается стрелкой при наведении на текст) */
+    box-sizing: border-box;
+    max-width: 1170px;
+    margin: 0 auto; /*g (Центрирование контейнера) */
+    padding: 0 15px; /*g (Отступы внутри контейнера) */
+}
+
+.header {
+    padding: 25px 0;
+}
+
+
+.header .container {
+    display: flex; /*g (df) создание главной и поперечной оси // выстраивание элементов в ряд*/
+    justify-content: space-between; /*g (Выравнивание по горизонтали по главной оси) */
+    align-items: center; /*g (Выравнивание по поперечной оси) */
+    
+}
+
+.header_list {
+    display: flex;
+    gap: 30px;
+    /*g (Интервал между элементами) */
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 500;
+    font-size: 16px;
+
+    border-radius: 5px;
+    width: 165px;
+    height: 50px;
+    background: #f6762c;
+
+    text-transform: uppercase; /*g (Caps) */
+
+    transition: opacity 0.3s;
+
+    transition: transform 0.1s ease; /*g Плавное изменение */
+}
+
+.btn--small {
+    width: 141px;
+    height: 39px;
+    font-size: 12px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn:active {
+    transform: scale(0.95);
+    /*g Уменьшение размера при зажатии */
+}
+
+.header_nav a {
+    font-size: 14px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.header_nav a.active {
+    font-size: 14px;
+    opacity: 1;
+}
+
+.header_nav a:hover {
+    opacity: 0.9;
+}
+
+/*p WELCOME */
+.welcome {
+    /*g (Растягивание секции на весь экран - следующие 2 строчки) */
+    box-sizing: border-box;
+    min-height: 100vh;
+
+    margin-top: -100px;
+    padding-top: 280px;
+    padding-bottom: 330px;
+    
+    background-image: url(./landing/images/welcome-bg.jpg);
+    background-repeat: no-repeat; /*g (Чтобы картинка не повторялась) */
+    background-size: cover; /*g (Растягиваем на всю страницу) */
+    background-position: center; /*g (Центрируем картинку) */
+}
+
+.welcome_text {
+    max-width: 550px;
+}
+
+.welcome_subtitle {
+    margin-bottom: 7px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+}
+
+.welcome_title {
+    line-height: 67px;
+    font-size: 57px;
+}
+
+.welcome_desc {
+    margin: 40px 0; /*g (40 - верх/низ, 0 - лево/право) */
+    font-weight: 300;
+    font-size: 18px;
+    opacity: 0.7;
+}
+
+/*p FOOD-LIST */
+.foot-list {
+    padding: 100px 0;
+}
+
+.foot-list .container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /*g (Адаптация) */
+    gap: 40px 10px; /*g (Расстояние до адапдации) */
+}
+
+.foot-list_card {
+    width: 260px;
+    background: #312f30;
+    border-radius: 10px;
+    overflow: hidden; /*g (Обрезание всего что за пределами карточки - в данном случае чтобы картинка тоже закруглилась) */
+    text-align: center; /*g (Центрирование всего текстового контента внутри карточки) */
+    transition: background 0.3s ease;
+}
+
+.foot-list_card:hover {
+    animation: colorFlash 0.8s ease;
+} 
+/*g (Анимация: связанна с 'foot-list_card:hover' и 'foot-list_card' выше) */
+@keyframes colorFlash {
+    0% {
+        background: #312f30;
+    }
+    10% {
+        background: #424041;
+    }
+    100% {
+        background: #312f30;
+    }
+}
+
+.foot-list_img {
+    height: 175px;
+    object-fit: cover; /*g (Пропорциональное растягивание картинки) */
+}
+
+.foot-list_text-wrapper {
+    padding: 30px 20px;
+}
+
+.foot-list_title {
+    font-size: 20px;
+    margin-bottom: 13px;
+}
+
+.foot-list_desc {
+    font-weight: 300;
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+/*p ORDER */
+.order {
+    background: #312f30;
+    padding: 60px 0;
+}
+
+.order .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 90px;
+}
+
+.order_img {
+    max-width: 470px;
+}
+
+.order_text {
+    max-width: 360px;
+}
+
+.order_title {
+    font-size: 44px;
+    margin-bottom: 25px;
+}
+
+.order_desc {
+    font-weight: 300;
+    font-size: 16px;
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+
+/*g (При наличии соседней цены она будет с данным отступом от предыдущей) */
+.order_price + .order_price {
+    margin-left: 3px;
+}
+
+.order_price {
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: #f6762c;
+}
+
+/*g (Модификатор) */
+.order_price--old {
+    font-size: 16px;
+    text-decoration: line-through; /*g (Перечеркивание) */
+    opacity: 0.5;
+}
+
+.order .btn {
+    margin-top: 10px;
+}
+
+/*p PRODUCTS */
+
+.product {
+    padding: 150px 0;
+}
+
+.product .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.product_card {
+    box-sizing: border-box;
+    width: 555px;
+    max-height: 300px;
+
+    padding: 60px 0 60px 290px;
+}
+
+/*g (Каждая четная карточка из родителя) */
+.product_card:nth-child(even) {
+    padding: 60px 290px 60px 50px;
+}
+
+.product_title {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.product_desc {
+
+    width: 250px;
+    font-weight: 300;
+    font-size: 16px;
+    margin-bottom: 10px;
+
+    opacity: 0.7;
+}
+
+.product_price {
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    color: #f6762c;
+}
+
+.product_price + .product_price {
+    margin-left: 7px;
+}
+
+.product_price--old {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.product .btn {
+    margin-top: 10px;
+}
+
+.card-queen {
+    background-image: url(./landing/images/product-1.jpg);
+    background-repeat: no-repeat; /*g (Чтобы картинка не повторялась) */
+}
+
+.card-hut {
+    background-image: url(./landing/images/product-2.jpg);
+    background-repeat: no-repeat; /*g (Чтобы картинка не повторялась) */
+}
+
+.card-king {
+    background-image: url(./landing/images/product-3.jpg);
+    background-repeat: no-repeat; /*g (Чтобы картинка не повторялась) */
+}
+
+.card-papa {
+    background-image: url(./landing/images/product-4.jpg);
+    background-repeat: no-repeat; /*g (Чтобы картинка не повторялась) */
+}
+
+/*p FEEDBACK */
+.feedback {
+    padding: 0 0 195px 0;
+}
+
+.feedback .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /*g (Поперечная ось сверху вниз -> элементы контейнера по центру вертикально) */
+    max-width: 880px; /*g (ширина секции + Паддинги по краям) */
+}
+
+.feedback_text {
+    padding-left: 120px;
+    width: 370px;
+    text-align: center;
+}
+
+/*g (Создание псевдоэлемента before, который изначально не вписывается в контент) */
+.feedback_text::before {
+    content: url(./landing/images/icons/quote.svg);
+}
+
+.feedback_desc {
+    margin: 0;
+    font-weight: 300;
+    font-size: 16px;
+    opacity: 0.7;
+    margin: 30px 0;
+}
+
+.feedback_autor {
+    font-size: 24px;
+    margin-bottom: 2px;
+}
+
+.feedbback_subautor {
+    font-size: 12px;
+    opacity: 0.7;
+    display: block; /*g (Блочный элемент занимает новую строчку) */
+}
+
+/*p DOWNLOAD */
+.download {
+    background: #312f30;
+    padding: 60px 100px; /*g (Отступы от краев фона к внутренним элементам сверху и сниизу) */
+}
+
+.download .container{
+    display: flex;
+    justify-content: space-around; /*g (Растяжение элементов по всему контейнеру - верет половину расстояния между элементами и ставит каждый на это расстояние от краев контейнера сохраняя расстояние между ними) */
+    max-width: 980px;
+}
+
+.download_text {
+    font-size: 40px;
+}
+
+/*p FOOTER */
+.footer {
+    padding: 120px 0;
+}
+
+.footer .container {
+    display: flex;
+}
+
+.footer_logo {
+    margin-bottom: 30px;
+}
+
+.web {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.padding_bottom {
+    padding-bottom: 8px;
+}
+
+.footer_link-mail-li {
+    margin-bottom: 5px;
+}
+
+.footer_link-mail {
+    font-weight: 300;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.footer_link-web {
+    font-weight: 300;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.footer_nav {
+    padding: 0 160px 0 90px;
+}
+
+.footer_list {
+    display: flex;
+    gap: 160px;
+}
+
+.footer .footer_title {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.footer_inner-list {
+    padding-top: 14px;
+    font-weight: 400;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.footer_inner-list li:not(:first-child) {
+    margin-top: 15px;
+}
+
+.footer_social-icons {
+    padding-top: 16px;
+    display: flex;
+    gap: 10px;
+}
